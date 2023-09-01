@@ -1,3 +1,4 @@
+import product from '../sanity_ecommerce/schemas/product';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 
@@ -10,6 +11,9 @@ export const StateContext = ({ children }) => {
     const [totalPrice, setTotalPrice] = useState(0);
     const [totalQuantities, setTotalQuantities] = useState(0);
     const [qty, setQty] = useState(1);
+
+    let foundProduct;
+    let index;
 
     const onAdd = (product, quantity) => {
         //check if item is currently in cart
@@ -38,6 +42,38 @@ export const StateContext = ({ children }) => {
         toast.success(`${qty} ${product.name} added to the cart.`)
     }
 
+    const onRemove = (product) => {
+        //find item
+        foundProduct = cartItems.find((item) => item._id === product._id);
+        //get version of cart item
+        const newCartItems = cartItems.filter((item) => item._id !== product._id);
+
+        setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
+        setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity)
+        setCartItems(newCartItems);
+    }
+
+    const toggleCartItemQuantity = (id, value) => {
+        foundProduct = cartItems.find((item) => item._id === id);
+        index = cartItems.findIndex((product) => product._id === id);
+        //update the state without mutating.
+        const newCartItems = cartItems.filter((item) => item._id !== id);
+
+        if(value === 'inc') {
+            setCartItems([...newCartItems, { ...foundProduct, 
+                quantity: foundProduct.quantity + 1}])
+            setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
+            setTotalQuantities(prevTotalQuantities => prevTotalQuantities + 1);
+        } else if(value === 'dec') {
+            if(foundProduct.quantity > 1) {
+                setCartItems([...newCartItems, { ...foundProduct, 
+                    quantity: foundProduct.quantity - 1 } ]);
+                setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
+                setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1);
+            }
+        }
+    }
+
     const incQty = () => {
         setQty((prevQty) => prevQty + 1);
     }
@@ -57,10 +93,15 @@ export const StateContext = ({ children }) => {
             totalPrice,
             totalQuantities,
             qty,
+            toggleCartItemQuantity,
+            onRemove,
             incQty,
             decQty,
             onAdd,
             setShowCart,
+            setTotalQuantities,
+            setCartItems,
+            setTotalPrice,
             setTotalQuantities,
         }}
         >
