@@ -10,8 +10,8 @@ import { client, urlFor } from "../../lib/client";
 import { Product } from "../../components";
 import { useStateContext } from '../../context/StateContext';
 
-const ProductDetails = ({ product, products }) => {
-  const { image, name, details, price } = product;
+const ProductDetails = ({ products, product }) => {
+  const { name, details, price, image } = product;
 
   const [ index, setIndex ] = useState(0)
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
