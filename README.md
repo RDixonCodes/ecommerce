@@ -1,4 +1,4 @@
-[SPARX Market](https://sparx-6gnlfgjdw-rdixoncodes.vercel.app/)
+[SPARX Market](https://sparx-two.vercel.app/)
 
 - Developed using Next.js to harness its speed and scalability advantages
 - Built a robust backend utilizing Sanity.io for seamless text and image management
