@@ -1,8 +1,8 @@
 [SPARX Market](https://sparx-6gnlfgjdw-rdixoncodes.vercel.app/)
 
-- Ecommerce site built using Next.js for its speed and scalability
-- Backend created using Sanity.io for its ease of text and image management
-- Integrated Stripe for a smooth payment experience.
+- Developed using Next.js to harness its speed and scalability advantages
+- Built a robust backend utilizing Sanity.io for seamless text and image management
+- Seamlessly integrated Stripe to offer customers a smooth and secure payment experience
 
 <img src="https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="nextjs" /> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="css" />
 
