@@ -1,4 +1,4 @@
-[SPARX Market](https://sparx-two.vercel.app/)
+[SPARX Marketplace](https://sparx-two.vercel.app/)
 
 I've developed an online electronics marketplace using Next.js, a cutting-edge React framework. This platform seamlessly integrates with Sanity.io for efficient and reliable data storage. With a focus on user experience, I've implemented Stripe payment integration to provide customers with a secure and smooth payment process. Explore how this project demonstrates my expertise in front-end development with React for a seamless e-commerce experience.
 
